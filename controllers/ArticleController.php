@@ -14,18 +14,23 @@ class ArticleController {
 		require('./views/home.php');
 		
 	}
-	/*
-	function addUser() {
+	
+	function addArticle() {
 		
-		$userRepo = new UserRepository();
-		$userRepo->addUser();
+		$articleRepo = new ArticleRepository();
+		$articleRepo->addArticle();
+		$articles = $articleRepo->getArticles();
 		
-		$users = $userRepo->getUsers();
-		
-		require('../view/home.php');
+		require('./views/home.php');
 		
 	}
-	*/
-	
-	
+
+	function getDetail()
+	{
+		$articleRepo = new ArticleRepository();
+		$article = $articleRepo->getArticle();
+
+		require('./views/detail.php');
+	}
 }
+

@@ -1,20 +1,29 @@
-
-// Fichier qui permet d'excuter les fonctions demandées
  
 <?php
 
-require('./models/ArticleRepository.php');
+require('./models/UserRepository.php');
 
-class ArticleController {
+class UserController {
 	
-	function listArticles() {
+	function connect() {
 		
 		//Communiquer avec la BD
+		$userRepo = new UserRepository();
+		$userExists = $userRepo->connect();
+
 		$articleRepo = new ArticleRepository();
 		$articles = $articleRepo->getArticles();
 		
+	if ($userExists) {
+		require('./admin.php');
+	}
+	else 
+		require('./Login.php');
+
+	
 		//Charger la vue
-		require('./views/home.php');
+	
+		//require('./views/home.php');
 		
 	}
 	/*

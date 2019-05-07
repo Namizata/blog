@@ -72,21 +72,17 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
 
-        <?php foreach ($articles as $article) { ?>
             <div class="post-preview">
               <h1 class="post-title"> <?= $article-> getTitle(); ?> 
               </h1>
               <p class="post-meta">Rédigé par <?= $article-> getAuthor(); ?> le
                <?= $article-> getPublishedDate(); ?> </p>
-              <!--<h3 class="post-subtitle"> <?= $article-> getContent(); ?> 
-              </h3> -->
-              <h5 class="post-meta"> <?= $article-> getSummary() ; ?> 
-              </h5>
-              <a href="index.php?page=detail&id=<?= $article-> getId() ; ?>"> Lire la suite</a>
+              <<h3 class="post-subtitle"> <?= $article-> getContent(); ?> 
+              </h3>
               <br>
               <br>
             </div>
-        <?php } ?>
+       
 
         <!-- Pager -->
         <div class="clearfix">

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -71,7 +72,7 @@
           <div class="col-lg-8 mx-auto">
             <div class="jumbotron">
               <h2>ESPACE ADMINISTRATION</h2>
-               <form class="log_in" method="post" action="indexAdmin.php" >
+               <form class="log_in" method="post" action="index.php?page=admin" >
                 <div class="form-group">
                   <label for="login">Pseudo</label>
                   <input type="text" name="login" class="form-control" id="login"  placeholder="Entrez votre pseudo">
@@ -83,7 +84,6 @@
                 <button class="btn btn-primary" type="submit">Connexion</button>
               </form>
             </div>
-            <p>Pas encore inscrit ? <a href="#">Inscrivez-vous ici !</a></p>
           </div>
         </div>
       </div>

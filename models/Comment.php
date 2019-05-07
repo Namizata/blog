@@ -1,36 +1,29 @@
 <?php
 
-class Article {
+class Comment {
 	
 	//1. Attributs (pas de id)
-	private $title;
 	private $content;
 	private $publishedDate;
 	private $author;
-	private $id;
+	private $postId;
 
 	
 	//2. Constructeur
 	//User user = new User('AlexandreM11', 'salut');
-	public function __construct($title, $content, $publishedDate, $author, $id) {
+	public function __construct($content, $publishedDate, $author, $postId,) {
 		
-		$this->title = $title;
 		$this->content = $content;
 		$this->publishedDate = $publishedDate;
 		$this->author = $author;
-		$this->id= $id;
-
-
+		$this->postId = $postId;
 		
 		
 	}
 	
-	//3. Accesseurs et mutateurs - article.getArticle();
-	
-	public function getTitle() {
-		return $this->title;
-	}
-	
+	//3. Accesseurs et mutateurs
+	// user.getUsername();
+		
 	public function getContent() {
 		return $this->content;
 	}
@@ -42,33 +35,37 @@ class Article {
 	public function getAuthor() {
 		return $this->author;
 	}
-
-	public function getSummary() {
-		echo mb_substr ($this->content,0,400) . "...";
+	public function getPostId() {
+		return $this->postId;
 	}
-
-    public function getId () {
-    	return $this->id;
-    }
-
 
 
 	// user.setUsername('Paul');
-	public function setTitle($title) {
-		$this->title = $title;
-	}
 	
 	public function setContent($content) {
-		$this->content = $content;	
+		
+		$this->content = $content;
+		
 	}
 
 	public function setPublishedDate($publishedDate) {
+		
 		$this->publishedDate = $publishedDate;
+		
 	}
 
 	public function setAuthor ($author) {
-		$this->author = $author;	
+		
+		$this->author = $author;
+		
 	}
+
+	public function setPostId($postId) {
+		
+		$this->postId = $postId;
+		
+	}
+	
 	
 }
 
