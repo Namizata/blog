@@ -1,6 +1,7 @@
 <?php
 
 require('./models/ArticleRepository.php');
+require('./models/CommentRepository.php');
 
 class ArticleController {
 	
@@ -25,10 +26,12 @@ class ArticleController {
 		
 	}
 
-	function getDetail()
-	{
+	function getDetail() {
 		$articleRepo = new ArticleRepository();
 		$article = $articleRepo->getArticle();
+
+		$commentRepo = new CommentRepository();
+		$comments = $commentRepo->getComments();
 
 		require('./views/detail.php');
 	}

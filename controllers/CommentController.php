@@ -1,31 +1,34 @@
 <?php
 
-require('./models/ArticleRepository.php');
+//require('./models/CommentRepository.php');
 
-class ArticleController {
+class CommentController {
 	
-	function listArticles() {
+	function listComments() {
 		
 		//Communiquer avec la BD
-		$articleRepo = new ArticleRepository();
-		$articles = $articleRepo->getArticles();
+		$commentRepo = new CommentRepository();
+		$comments = $commentRepo->getComments();
 		
 		//Charger la vue
-		require('./views/home.php');
+		require('./views/detail.php');
 		
 	}
-	/*
-	function addUser() {
+	
+	function addComment() {
 		
-		$userRepo = new UserRepository();
-		$userRepo->addUser();
+		$commentRepo = new CommentRepository();
+		$commentRepo->addComment();
 		
-		$users = $userRepo->getUsers();
+		$comments = $commentRepo->getComments();
+
+		$articleRepo = new ArticleRepository();
+		$article = $articleRepo->getArticle();
 		
-		require('../view/home.php');
+		require('./views/detail.php');
 		
 	}
-	*/
+
 	
 	
 }

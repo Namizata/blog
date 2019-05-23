@@ -1,16 +1,18 @@
 <?php
-require('Repository.php');
-require('Article.php');
+//require('Repository.php');
+require('Comment.php');
 
 class CommentRepository extends Connect {
 	
-	function getComment()
+	function getComments()
 	{
 		//Accéder à la BD
 		$db = $this->getDb();
 
 		//Préparer la requête
-		$req = $db->prepare('SELECT * FROM comment LIMIT 0, 2');
+		$req = $db->prepare('SELECT * FROM comment WHERE postId=:postId and isValid=1');
+		$req->bindParam(':postId', $_SESSION['id'], \PDO::PARAM_STR);
+
 		
 		//Exécuter la requête
 		$req->execute();
@@ -22,7 +24,7 @@ class CommentRepository extends Connect {
 		while($data = $req-> fetch()) {
 			
 			//Version objet
-			$comment = new Comment($data['content'], $data['publishedDate'], $data['author'], $data['postID']);
+			$comment = new Comment($data['author'], $data['publishedDate'], $data['content'], $data['postId']);
 			$comments[] = $comment;
 			
 		}
@@ -33,20 +35,18 @@ class CommentRepository extends Connect {
 		//On retourne le tableau à CommentController
 		return $comments;
 	}
-
-
 	
-	/* 
-	function addUser() 
+	
+	function addComment() 
 	{
 		$db = $this->getDb();
-
-		$req = $db->prepare('INSERT INTO users(username, password) VALUES(:username, :password)');
-		$req->bindParam(':username', $_SESSION['username'], \PDO::PARAM_STR);
-		$req->bindParam(':password', $_SESSION['password'], \PDO::PARAM_STR);
+		$req = $db->prepare('INSERT INTO comment(content, publishedDate, author, postId) VALUES(:content, now(), :author, :postId)');
+		$req->bindParam(':content', $_SESSION['commentArea'], \PDO::PARAM_STR);
+		$req->bindParam(':author', $_SESSION['commentAuthorPseudo'], \PDO::PARAM_STR);
+		$req->bindParam(':postId', $_SESSION['id'], \PDO::PARAM_STR);
 		$req->execute();
 		
 	}
-	*/ 
+	 
 }
 

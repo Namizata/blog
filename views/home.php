@@ -78,8 +78,7 @@
               </h1>
               <p class="post-meta">Rédigé par <?= $article-> getAuthor(); ?> le
                <?= $article-> getPublishedDate(); ?> </p>
-              <!--<h3 class="post-subtitle"> <?= $article-> getContent(); ?> 
-              </h3> -->
+               
               <h5 class="post-meta"> <?= $article-> getSummary() ; ?> 
               </h5>
               <a href="index.php?page=detail&id=<?= $article-> getId() ; ?>"> Lire la suite</a>

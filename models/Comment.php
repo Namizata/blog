@@ -3,67 +3,63 @@
 class Comment {
 	
 	//1. Attributs (pas de id)
-	private $content;
-	private $publishedDate;
 	private $author;
+	private $publishedDate;
+	private $content;
 	private $postId;
 
 	
 	//2. Constructeur
 	//User user = new User('AlexandreM11', 'salut');
-	public function __construct($content, $publishedDate, $author, $postId,) {
+	public function __construct($author, $publishedDate, $content, $postId) {
 		
-		$this->content = $content;
-		$this->publishedDate = $publishedDate;
 		$this->author = $author;
+		$this->publishedDate = $publishedDate;
+		$this->content = $content;
 		$this->postId = $postId;
 		
 		
 	}
 	
 	//3. Accesseurs et mutateurs
-	// user.getUsername();
+	// comment.getComment();
 		
-	public function getContent() {
-		return $this->content;
+	
+	public function getAuthor() {
+		return $this->author;
 	}
 
 	public function getPublishedDate() {
 		return $this->publishedDate;
 	}
-
-	public function getAuthor() {
-		return $this->author;
+	
+	public function getContent() {
+		return $this->content;
 	}
+
 	public function getPostId() {
 		return $this->postId;
 	}
 
 
-	// user.setUsername('Paul');
+	// comment.setComment('Paul');
 	
-	public function setContent($content) {
-		
-		$this->content = $content;
-		
-	}
-
-	public function setPublishedDate($publishedDate) {
-		
-		$this->publishedDate = $publishedDate;
-		
-	}
+	
 
 	public function setAuthor ($author) {
-		
 		$this->author = $author;
-		
+	}
+	
+	public function setPublishedDate($publishedDate) {
+		$this->publishedDate = $publishedDate;
 	}
 
+	public function setContent($content) {
+		$this->content = $content;
+	}
+	
 	public function setPostId($postId) {
-		
 		$this->postId = $postId;
-		
 	}
 	
 	

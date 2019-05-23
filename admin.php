@@ -72,9 +72,8 @@
                   <input type="text" name="titre" class="form-control" >
                 </div>
                 <div class="form-group">
-                  <label for="text">Content</label>
-                  <textarea rows="10" cols="50">
-                  </textarea>
+                  <label for="text">Contenu</label>
+                  <textarea rows="10" cols="50"> </textarea>
                 </div>
                 <input type="submit" name="content" value="ajouter article">
             </form>

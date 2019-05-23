@@ -75,18 +75,63 @@
             <div class="post-preview">
               <h1 class="post-title"> <?= $article-> getTitle(); ?> 
               </h1>
-              <p class="post-meta">Rédigé par <?= $article-> getAuthor(); ?> le
+              <p class="post-meta"> Rédigé par <?= $article-> getAuthor(); ?> le
                <?= $article-> getPublishedDate(); ?> </p>
-              <<h3 class="post-subtitle"> <?= $article-> getContent(); ?> 
+              <h3 class="post-meta"> <?= $article-> getContent(); ?> 
+              </h3>
+              <br>
+            </div>
+            <div>
+              <p><b>COMMENTAIRES</b></p>
+              <form method="post" action="index.php?page=addComment">
+               <div class="form-group">
+                <label for="commentAuthorPseudo">Pseudo</label>
+                <input type="text" class="form-control" name= "commentAuthorPseudo" id="commentAuthorPseudo" placeholder="Entrez votre pseudo">
+               </div>
+               <div class="form-group">
+                <label for="commentArea">Commentaire</label>
+                <textarea class="form-control" name="commentArea" id="commentArea" rows="3" placeholder="saisissez votre commentaire"></textarea>
+               </div>
+               <button type="submit" class="btn btn-secondary">Soumettre</button>
+              </form>
+            </div>
+              <br>
+              <br>
+            <div>
+              <h4 class="post-subtitle">TOUS LES COMMENTAIRES</h4>
+              <?php foreach ($comments as $comment) { ?>
+              <p class="post-meta"> Rédigé par <?= $comment-> getAuthor(); ?> le
+               <?= $comment-> getPublishedDate(); ?> </p>
+              <h3 class="post-subtitle"> <?= $comment-> getContent(); ?> 
               </h3>
               <br>
               <br>
             </div>
+            <?php } ?>
+              <!--<p class="post-meta"> Rédigé par <?= $comment-> getAuthor(); ?> le
+               <?= $comment-> getPublishedDate(); ?> </p>
+              <h3 class="post-subtitle"> <?= $comment-> getContent(); ?> 
+              </h3> -->
+
+            </div>
+            <br>
+            <br>
+
+            <!--s
+               <form method="post" action="">
+                <p>Votre pseudo</p>
+                <input type="text" name="author" placeholder="pseudo">
+                <br>
+                <p>Votre commentaire</p>
+                <textarea rows="3" cols="60" name="content" placeholder="saisissez votre commentaire"></textarea>
+                <br>
+                <input type="submit" value="soumettre" >
+               </form> -->
        
 
         <!-- Pager -->
         <div class="clearfix">
-          <a class="btn btn-primary float-right" href="#">Précedents articles &rarr;</a>
+          <a class="btn btn-primary float-right" href="index.php">Retour à la page d'accueil &rarr;</a>
         </div>
       </div>
     </div>

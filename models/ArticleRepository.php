@@ -35,20 +35,19 @@ class ArticleRepository extends Connect {
 	}
 
 
-function getArticle()
+    function getArticle()
 	{
 		//Accéder à la BD
 		$db = $this->getDb();
 
 		//Préparer la requête
-		var_dump($_SESSION['id']);
 		$req = $db->prepare('SELECT * FROM post WHERE id=:id');
 		$req->bindParam(':id', $_SESSION['id'], \PDO::PARAM_STR);
 		
 		//Exécuter la requête
 		$req->execute();
 		
-			$article;
+		$article;
 		
 		//Pour chaque enregistrement en BD, on ajoute un élément au tableau
 		while($data = $req-> fetch()) {
@@ -66,14 +65,19 @@ function getArticle()
 	}
 
 	
-	function addArticle()
+    function addArticle()
 
 	{
+		
+		//Accéder à la BD
 		$db = $this->getDb();
-
+       
+       //Préparer la requête
 		$req = $db->prepare('INSERT INTO post (title, author, publishedDate, content) VALUES(:title, 1, now(), :content)');
 		$req->bindParam(':title', $_SESSION['titre'], \PDO::PARAM_STR);
 		$req->bindParam(':content', $_SESSION['content'], \PDO::PARAM_STR);
+	
+	   //Executer la requête
 		$req->execute();
 		
 	}
